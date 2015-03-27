@@ -2,7 +2,7 @@
   "name": "pdfium",
   "description": "Node.js/iojs/node-webkit native pdfium port",
   "version": "0.0.1",
-  "homepage": "http://github.com/tojocky/node-pdfium-native",
+  "homepage": "http://github.com/tojocky/node-pdfium",
   "author": {
     "name": "Ion Lupascu",
     "url": "http://lupascu.net",
@@ -16,13 +16,7 @@
     "url": "git://github.com/tojocky/node-pdfium-native.git"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-jshint": "^0.11.0",
-    "grunt-node-gyp": "git://github.com/tojocky/grunt-node-gyp.git",
-    "grunt-nw-gyp": "git://github.com/tojocky/grunt-nw-gyp.git",
-    "karma": "^0.12.31",
-    "nodeunit": "*"
+    "karma": "^0.12.31"
   },
   "engines": {
     "node": ">= 0.8.0"
