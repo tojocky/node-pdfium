@@ -719,17 +719,17 @@
     {
       'target_name': 'javascript',
       'type': 'static_library',
-      'include_dirs': [
-        '<(DEPTH)/v8',
-        '<(DEPTH)/v8/include',
-      ],
-      'dependencies': [
-        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
-      ],
-      'export_dependent_settings': [
-        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
-      ],
-      'ldflags': [ '-L<(PRODUCT_DIR)',],
+#      'include_dirs': [
+#        '<(DEPTH)/v8',
+#        '<(DEPTH)/v8/include',
+#     ],
+#      'dependencies': [
+#        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
+#      ],
+#      'export_dependent_settings': [
+#        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
+#      ],
+#      'ldflags': [ '-L<(PRODUCT_DIR)',],
       'sources': [
         'fpdfsdk/include/javascript/app.h',
         'fpdfsdk/include/javascript/color.h',
@@ -778,17 +778,17 @@
     {
       'target_name': 'jsapi',
       'type': 'static_library',
-      'dependencies': [
-        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
-      ],
-      'export_dependent_settings': [
-        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
-      ],
-      'include_dirs': [
-        '<(DEPTH)/v8',
-        '<(DEPTH)/v8/include',
-      ],
-      'ldflags': [ '-L<(PRODUCT_DIR)',],
+#      'dependencies': [
+#        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
+#      ],
+#      'export_dependent_settings': [
+#        '<(DEPTH)/v8/tools/gyp/v8.gyp:v8',
+#      ],
+#      'include_dirs': [
+#        '<(DEPTH)/v8',
+#        '<(DEPTH)/v8/include',
+#      ],
+#      'ldflags': [ '-L<(PRODUCT_DIR)',],
       'sources': [
         'fpdfsdk/include/jsapi/fxjs_v8.h',
         'fpdfsdk/src/jsapi/fxjs_v8.cpp',
@@ -822,49 +822,6 @@
         'fpdfsdk/src/formfiller/FFL_RadioButton.cpp',
         'fpdfsdk/src/formfiller/FFL_TextField.cpp',
         'fpdfsdk/src/formfiller/FFL_Utils.cpp',
-      ],
-    },
-    {
-      'target_name': 'pdfium_unittests',
-      'type': 'executable',
-      'dependencies': [
-        '<(DEPTH)/testing/gtest.gyp:gtest_main',
-        '<(DEPTH)/testing/gtest.gyp:gtest',
-        'pdfium',
-      ],
-      'include_dirs': [
-        '<(DEPTH)'
-      ],
-      'sources': [
-        'core/src/fpdfapi/fpdf_parser/fpdf_parser_decode_unittest.cpp',
-        'core/src/fxcrt/fx_basic_bstring_unittest.cpp',
-        'core/src/fxcrt/fx_basic_wstring_unittest.cpp',
-        'testing/fx_string_testhelpers.h',
-        'testing/fx_string_testhelpers.cpp',
-      ],
-    },
-    {
-      'target_name': 'pdfium_embeddertests',
-      'type': 'executable',
-      'dependencies': [
-        '<(DEPTH)/testing/gmock.gyp:gmock',
-        '<(DEPTH)/testing/gtest.gyp:gtest',
-        'pdfium',
-      ],
-      'include_dirs': [
-        '<(DEPTH)'
-      ],
-      'sources': [
-        'fpdfsdk/src/fpdf_dataavail_embeddertest.cpp',
-        'fpdfsdk/src/fpdfdoc_embeddertest.cpp',
-        'fpdfsdk/src/fpdfformfill_embeddertest.cpp',
-        'fpdfsdk/src/fpdftext_embeddertest.cpp',
-        'fpdfsdk/src/fpdfview_embeddertest.cpp',
-        'testing/embedder_test.cpp',
-        'testing/embedder_test.h',
-        'testing/embedder_test_mock_delegate.h',
-        'testing/fx_string_testhelpers.cpp',
-        'testing/fx_string_testhelpers.h',
       ],
     },
   ],

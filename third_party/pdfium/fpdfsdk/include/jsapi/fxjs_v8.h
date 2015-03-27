@@ -7,6 +7,7 @@
 #ifndef FXJSAPI_H
 #define FXJSAPI_H
 
+#include <node.h>
 #include <v8.h>
 #include "../../../core/include/fxcrt/fx_string.h"  // For CFX_WideString
 
