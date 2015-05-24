@@ -15,6 +15,7 @@
       '_FPDFSDK_LIB',
       '_NO_GDIPLUS_',  # workaround text rendering issues on Windows
       'OPJ_STATIC',
+      'WIN32_LEAN_AND_MEAN',
     ],
     'include_dirs': [
       'third_party/freetype/include',
