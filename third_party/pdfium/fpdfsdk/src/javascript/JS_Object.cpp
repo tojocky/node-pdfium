@@ -88,7 +88,7 @@ void CJS_EmbedObj::EndTimer(CJS_Timer* pTimer)
 }
 
 /* ---------------------------------  CJS_Object --------------------------------- */
-void  FreeObject(const v8::WeakCallbackInfo<CJS_Object>& data/*, v8::Local<v8::Object> obj*/)
+void  FreeObject(const v8::WeakCallbackInfo<CJS_Object>& data)
 {
 	CJS_Object* pJSObj  = data.GetParameter();
 
