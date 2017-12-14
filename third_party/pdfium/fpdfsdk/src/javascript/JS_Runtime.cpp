@@ -100,7 +100,7 @@ CJS_Runtime::CJS_Runtime(CPDFDoc_Environment * pApp) :
 	m_pFieldEventPath(NULL),
 	m_bRegistered(FALSE)
 {
-	m_isolate = v8::Isolate::New();
+	m_isolate = v8::Isolate::GetCurrent();
 	//m_isolate->Enter();
 
 	InitJSObjects();
