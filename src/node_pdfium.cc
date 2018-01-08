@@ -504,7 +504,9 @@ void EncodePagesResult(const std::vector<std::string>& iResult, v8::Handle<v8::A
   MY_NODE_MODULE_ISOLATE_DECL;
   int i = 0;
   for(std::vector<std::string>::const_iterator it = iResult.begin(); it != iResult.end(); ++it) {
-    v8::Local<v8::Value> data = node::Buffer::New(MY_NODE_MODULE_ISOLATE_PRE it->c_str(), it->size());
+    v8::MaybeLocal<v8::Object> objTemp = node::Buffer::New(MY_NODE_MODULE_ISOLATE_PRE (char*)it->c_str(), it->size());
+	v8::Local<v8::Value> data(objTemp.ToLocalChecked());
+	
     oResult->Set(i++, data);
   }
 }
@@ -575,10 +577,10 @@ MY_NODE_MODULE_CALLBACK(render)
   v8::String::Utf8Value outputFormatObject(options->Get(V8_STRING_NEW_UTF8("outputFormat"))->ToString());
   v8::Local<v8::Object> dataobject = options->Get(V8_STRING_NEW_UTF8("data")).As<v8::Object>();
 
-  if(dataobject->IsObject() && dataobject->HasIndexedPropertiesInExternalArrayData())
+  if(dataobject->IsObject() && dataobject->IsUint8Array())
   {
-    req->data.assign(static_cast<char*>(dataobject->GetIndexedPropertiesExternalArrayData()),
-            dataobject->GetIndexedPropertiesExternalArrayDataLength());
+    req->data.assign(static_cast<char*>(dataobject.As<v8::Uint16Array>()->Buffer()->GetContents().Data()),
+            dataobject.As<v8::Uint16Array>()->Length());
   }
   else
   {
